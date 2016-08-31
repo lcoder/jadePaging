@@ -2,6 +2,7 @@
 
 ```javascript
 var config = {
+    baseUrl: '' ,				// 生成的页数a标签的跳转地址
 	preHTML: '预置html代码' ,	// 分页代码前的html代码（未转义）
 	count: 200 ,				// 总共几条数据
 	limit: 10 ,					// 每页几条数据
