@@ -9,11 +9,11 @@ var config = {
 								// 当前第几页 var now = Math.ceil( ( offset + 1 ) / limit ) ;
 } ;
 ```
->
+
 ```jade
 // 需要paging的jade页面需要包含include jadePageing.jade文件来引用mixin
 +paging( config )
 ```
 ![jade分页代码样例](http://oco9w3mgp.bkt.clouddn.com/blog_images/jadePaging.png)
 
-生成的html代码每个a标签的href默认带有`?page=`page参数，用来跳转。
+> 生成的html代码每个a标签的href默认带有`?page=`page参数，用来跳转。
