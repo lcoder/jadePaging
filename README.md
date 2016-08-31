@@ -6,7 +6,7 @@ var config = {
 	preHTML: '预置html代码' ,	// 分页代码前的html代码（未转义）
 	count: 200 ,				// 总共几条数据
 	limit: 10 ,					// 每页几条数据
-	offset: 100					// 从第几条数据开始读区limit条数据 ( 这个参数用来计算当前第几页 )
+	offset: 100					// 从第几条数据开始读取limit条数据 ( 这个参数用来计算当前第几页 )
 								// 当前第几页 var now = Math.ceil( ( offset + 1 ) / limit ) ;
 } ;
 ```
