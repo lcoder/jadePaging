@@ -17,4 +17,5 @@ var config = {
 ```
 ![jade分页代码样例](http://oco9w3mgp.bkt.clouddn.com/blog_images/jadePaging.png)
 
-> 生成的html代码每个a标签的href默认带有`?page=`page参数，用来跳转。
+> 生成的html代码每个a标签的href默认带有`?page=`page参数，用来配合`baseUrl`跳转。
+> 如:`<a href="baseUrl?page=1"`
