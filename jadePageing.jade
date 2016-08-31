@@ -1,0 +1,40 @@
+mixin paging( page_config )
+    -
+        var baseUrl = page_config.baseUrl ? page_config.baseUrl + "?page=" : '?page=' ,
+            preHTML = page_config.preHTML ,
+            limit = Number( page_config.limit ) ,
+            offset = Number( page_config.offset ) ,
+            count = Number( page_config.count ) ,
+            now = Math.ceil( ( offset + 1 ) / limit ) ,
+            all = Math.ceil( count / limit ) ,
+            half_all = Math.ceil( all / 2 ) ;
+    if now > all
+        span.hide 当前页数大于总页数,分页失败
+    else
+        .flip_page.yellow_page
+            -
+                var no_link = 'javascript:void(0);' ,
+                    link = '' ,
+                    link_prev = now <= 1 ? no_link : baseUrl + 1  ,
+                    link_next = now >= all ? no_link : baseUrl + ( now + 1 )  ;
+            span.flip_page_wraper !{preHTML}
+            a.prev_page(href='#{ link_prev }') 上一页
+            -   for( var i = 1 ; i <= all ; i++ ){
+            -       var diff = i - now ;
+            -       if( Math.abs( diff ) <= 2 ){ link = i == now ? no_link : baseUrl + i ;
+            a(href='#{ link }',class={now: i == now}) #{ i }
+            -       }else{
+            -            if( i <= 3 ){ link = i == now ? no_link : baseUrl + i ;
+            a(href='#{ link }',class={now: i == now})= i
+            -           }else if( all - i < 3 ){ link = i == now ? no_link : baseUrl + i ;
+            a(href='#{ link }',class={now: i == now})= i
+            -           }else{
+            -               if( i == now + 3 || i == now - 3 ){
+            a(href='#{no_link}') ...
+            -               }else{
+            -                   continue;
+            -               }
+            -           }
+            -       }
+            -   }
+            a.next_page(href='#{ link_next }') 下一页
